@@ -1,1 +1,20 @@
 
+typedef struct elem {
+
+  int value ;
+  struct elem * next ;
+  struct elem * prev ; 
+
+} ListElement ;
+
+typedef ListElement * List ;
+
+typedef struct listoflists {
+
+  List Listptr;
+  struct listoflists* next ;
+  struct listoflists* prev ;
+
+} LOL ;
+
+typedef LOL * LOLptr ;
