@@ -24,3 +24,4 @@ typedef struct listoflists {
 typedef LOL * LOLptr ;
 
 #endif
+/*TODO: test */
