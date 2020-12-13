@@ -1,30 +1,30 @@
 #ifndef LIST_STRUCTS
 #define LIST_STRUCTS
-
-#define TRUE 1
-#define FALSE 0
-typedef int BOOL;
+#include <stdbool.h>
 /*TODO: GENERAL PROJECT: 1. fonctions 2. moteur 3. boucle main = menu 4. reprendre une BC (init) puis sauvergarde si voulu (exit) */
+
+/*La structure Regle (List of Lists) est une liste d'adresses vers des listes d'éléments de structure ListElement*/
+
+typedef struct proposition {
+
+  char * contenu_proposition;
+  bool is_true;
+} Proposition;
+
 typedef struct elem {
 
-  string * premisse ;
-  BOOL bool_variable;
+  Proposition * contenu_premisse;
   struct elem * next ;
-
-} premisse ;
+  } Premisse ;
 
 /*List est un pointeur vers une liste d'éléments de structure ListElement*/
-typedef premisse  * list_premisse ;
+typedef Premisse  * list_premisse ;
 
-/*La structure LOL (List of Lists) est une liste d'adresses vers des listes d'éléments de structure ListElement*/
 typedef struct listoflists {
 
-  list_premisse premisse_ptr;
-  string * conclusion;
-  struct listoflists* next ;
-  int id ;
-  BOOL bool_variable;
-
+  list_premisse premisse_regle;
+  char * conclusion;
+  struct listoflists * next ;
 } Regle ;
 
 typedef Regle * BC;
@@ -38,6 +38,17 @@ insert_tail
 remove_head
 remove_tail
 print_list
+is_empty
+display_db() //(uses display_regle), récursif
+display_regle() //(uses display_premisse), on print simplement la conclusion en plus
+display_premisse() // récursif, utilise display_proposition
+display_proposition() //affiche le contenu et le boolean
+delete_db() //récursif
+delete_regle()  //récursif
+delete_premisse()  //récursif
+recherche_premisse()  //récursif
+add_empty_regle()
+add_regle()
 
 imposees:
 Créer une règle vide,
