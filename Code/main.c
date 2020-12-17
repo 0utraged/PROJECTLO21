@@ -1,6 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <list_structs.h>
+#include "proposition.h"
+#include "premisse.h"
+#include "regle.h"
+#include "baseconnaissance.h"
+
 
 int main(){
 

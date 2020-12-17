@@ -1,5 +1,10 @@
-#ifndef ENGINE
-#define ENGINE
+#ifndef PROPOSITION
+#define PROPOSITION
+
+typedef enum {
+  false,
+  true
+} bool;
 /*TODO: GENERAL PROJECT: 1. fonctions 2. moteur 3. boucle main = menu 4. reprendre une BC (init) puis sauvergarde si voulu (exit) */
 
 /*La structure Regle (List of Lists) est une liste d'adresses vers des listes d'éléments de structure ListElement*/
@@ -16,66 +21,11 @@ typedef struct proposition {
 
 } Proposition;
 
-typedef struct premisse_elem {
-
-  Proposition * contenu_premisse;
-  struct premisse_elem * next ;
-
-} Premisse_elem ;
-
-typedef struct regle {
-
-  Premisse_elem * premisse_regle ;
-  Proposition * conclusion ;
-
-} Regle ;
-
-typedef struct ruleset {
-
-  Regle * premisse_regle ;
-  struct regle * next ;
-
-} Ruleset ;
-
-typedef Ruleset * BC;
-
-Proposition * ajout_premisse_queue(Regle * r, Proposition * p )
-
-Proposition * ajout_conclusion_queue(Regle * r, Proposition * p )
-
-Regle * ajout_regle_queue(BC b, Regle * r )
-
-Proposition * get_conclusion(Regle r) // should print
-
-Regle * create_regle()
-
-BC create_base()
-
-void search_remove_prop(Proposition * p, Regle * r)
-
-bool is_empty_premisse(Regle * r)
-
-bool is_empty_basec(BC b)
-
-//Tester si une proposition appartient à la prémisse d’une règle, de manière récursive:
-
-bool is_in_premisse(Proposition * search, Regle r)  //récursif
-
-BC display_db(BC) //(uses display_regle), récursif
-
-Regle * display_regle(Regle * r) //(uses display_premisse), on print simplement la conclusion en plus
-
-Premisse_elem  * display_premisse(Regle * p) // récursif, utilise display_proposition
-
 Proposition * display_proposition(Proposition * p) //affiche le contenu et le boolean
 
-void delete_db(BC * b) //récursif
-
-void delete_regle(Regle * r)  //récursif
-
-void delete_premisse(Regle * r)  //récursif
-
 void delete_proposition(Proposition * p)  //récursif
+
+void set_bool(Proposition * p, bool b)
 
 #endif
 /*

@@ -1,27 +1,36 @@
 #ifndef LIST_STRUCTS
 #define LIST_STRUCTS
 
-typedef struct elem {
+typedef enum {
+	false,
+	true
+} Bool;
 
-  int value ;
-  struct elem * next ;
-  struct elem * prev ;
+typedef struct proposition {
 
-} ListElement ;
+  char * contenu_proposition;
+  bool is_true;
+
+} Proposition;
+
+typedef struct premisse_elem {
+
+  Proposition * contenu_premisse;
+  struct premisse_elem * next ;
+
+} Premisse_elem ;
 
 /*List est un pointeur vers une liste d'éléments de structure ListElement*/
-typedef ListElement * List ;
+typedef Premisse_elem  * Premisse ;
 
-/*La structure LOL (List of Lists) est une liste d'adresses vers des listes d'éléments de structure ListElement*/
-typedef struct listoflists {
+typedef struct regle {
 
-  List Listptr;
-  struct listoflists* next ;
-  struct listoflists* prev ;
+  Premisse premisse_regle ;
+  struct regle * next ;
+  Proposition * conclusion ;
 
-} LOL ;
+} Regle ;
 
-typedef LOL * LOLptr ;
+typedef Regle * BC;
 
 #endif
-/*TODO: test */
