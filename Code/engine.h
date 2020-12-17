@@ -39,43 +39,43 @@ typedef struct ruleset {
 
 typedef Ruleset * BC;
 
-Proposition * ajout_premisse_queue(Regle * r, Proposition * p )
+Proposition * ajout_premisse_queue(Regle * r, Proposition * p );
 
-Proposition * ajout_conclusion_queue(Regle * r, Proposition * p )
+Proposition * ajout_conclusion_queue(Regle * r, Proposition * p );
 
-Regle * ajout_regle_queue(BC b, Regle * r )
+Regle * ajout_regle_queue(BC b, Regle * r );
 
-Proposition * get_conclusion(Regle r) // should print
+Proposition * get_conclusion(Regle r); // should print
 
-Regle * create_regle()
+Regle * create_regle();
 
-BC create_base()
+BC create_base();
 
-void search_remove_prop(Proposition * p, Regle * r)
+void search_remove_prop(Proposition * p, Regle * r);
 
-bool is_empty_premisse(Regle * r)
+bool is_empty_premisse(Regle * r);
 
-bool is_empty_basec(BC b)
+bool is_empty_basec(BC b);
 
 //Tester si une proposition appartient à la prémisse d’une règle, de manière récursive:
 
-bool is_in_premisse(Proposition * search, Regle r)  //récursif
+bool is_in_premisse(Proposition * search, Regle r);  //récursif
 
-BC display_db(BC) //(uses display_regle), récursif
+BC display_db(BC); //(uses display_regle), récursif
 
-Regle * display_regle(Regle * r) //(uses display_premisse), on print simplement la conclusion en plus
+Regle * display_regle(Regle * r); //(uses display_premisse), on print simplement la conclusion en plus
 
-Premisse_elem  * display_premisse(Regle * p) // récursif, utilise display_proposition
+Premisse_elem  * display_premisse(Regle * p); // récursif, utilise display_proposition
 
-Proposition * display_proposition(Proposition * p) //affiche le contenu et le boolean
+Proposition * display_proposition(Proposition * p); //affiche le contenu et le boolean
 
-void delete_db(BC * b) //récursif
+void delete_db(BC * b); //récursif
 
-void delete_regle(Regle * r)  //récursif
+void delete_regle(Regle * r);  //récursif
 
-void delete_premisse(Regle * r)  //récursif
+void delete_premisse(Regle * r);  //récursif
 
-void delete_proposition(Proposition * p)  //récursif
+void delete_proposition(Proposition * p);  //récursif
 
 #endif
 /*

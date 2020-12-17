@@ -19,12 +19,12 @@ typedef struct premisse_elem {
 } Premisse_elem ;
 
 //Prototypes de fonctions:
-Premisse_elem * display_premisse(Premisse_elem * p)// récursif, utilise display_proposition
+Premisse_elem * display_premisse(Premisse_elem * p);// récursif, utilise display_proposition
 
-Proposition * display_proposition(Proposition * p) //affiche le contenu et le boolean
+Proposition * display_proposition(Proposition * p); //affiche le contenu et le boolean
 
-void delete_premisse(Premisse_elem * p,Premisse_elem * conclusion)  //récursif, use with while different than conclusion, link previous to next
+void delete_premisse(Premisse_elem * p,Premisse_elem * conclusion);  //récursif, use with while different than conclusion, link previous to next
 
-bool is_in_premisse(Proposition * search, Premisse_elem * p)// use with while different than conclusion
+bool is_in_premisse(Proposition * search, Premisse_elem * p);// use with while different than conclusion
 
 #endif

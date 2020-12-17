@@ -13,14 +13,14 @@ typedef struct ruleset {
 
 typedef Ruleset * BC;
 
-BC create_base()
+BC create_base();
 
-Regle * create_regle(BC b)
+Regle * create_regle(BC b);
 
-void delete_bc(BC * b) //récursif
+void delete_bc(BC * b); //récursif
 
-void delete_regle(Regle * r, BC b)  //récursif
+void delete_regle(Regle * r, BC b);  //récursif
 
-BC display_db(BC) //(uses display_regle), récursif
+BC display_db(BC); //(uses display_regle), récursif
 
 #endif

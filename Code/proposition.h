@@ -21,11 +21,11 @@ typedef struct proposition {
 
 } Proposition;
 
-Proposition * display_proposition(Proposition * p) //affiche le contenu et le boolean
+Proposition * display_proposition(Proposition * p); //affiche le contenu et le boolean
 
-void delete_proposition(Proposition * p)  //récursif
+void delete_proposition(Proposition * p);  //récursif
 
-void set_bool(Proposition * p, bool b)
+void set_bool(Proposition * p, bool b);
 
 #endif
 /*
