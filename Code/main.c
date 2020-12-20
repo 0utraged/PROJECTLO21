@@ -4,7 +4,7 @@
 #include "premisse.h"
 #include "regle.h"
 #include "baseconnaissance.h"
-
+#include "list_structs.h"
 
 int main(){
 

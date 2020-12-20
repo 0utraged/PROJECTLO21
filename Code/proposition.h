@@ -1,6 +1,10 @@
 #ifndef PROPOSITION
 #define PROPOSITION
 
+#include <stdio.h>
+#include <stdlib.h>
+#include "list_structs.h"
+
 typedef enum {
   false,
   true
@@ -13,13 +17,6 @@ typedef enum {
 //conclusion est vraie.
 //On considère une règle comme une liste de propositions, dont le dernier élément est la
 //conclusion de la règle.
-
-typedef struct proposition {
-
-  char * contenu_proposition;
-  bool is_true;
-
-} Proposition;
 
 Proposition * display_proposition(Proposition * p); //affiche le contenu et le boolean
 

@@ -1,17 +1,13 @@
 #ifndef BASEC
 #define BASEC
+
+#include <stdio.h>
+#include <stdlib.h>
+#include "list_structs.h"
+
 /*TODO: GENERAL PROJECT: 1. fonctions 2. moteur 3. boucle main = menu 4. reprendre une BC (init) puis sauvergarde si voulu (exit) */
 
 /*La structure Regle (List of Lists) est une liste d'adresses vers des listes d'éléments de structure ListElement*/
-
-typedef struct ruleset {
-
-  Regle * premisse_regle ;
-  struct regle * next ;
-
-} Ruleset ;
-
-typedef Ruleset * BC;
 
 BC create_base();
 

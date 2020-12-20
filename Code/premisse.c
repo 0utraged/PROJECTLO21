@@ -1,5 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include "premisse.h"
 
 Premisse_elem * display_premisse(Premisse_elem * p){

@@ -1,12 +1,9 @@
 #ifndef REGLE
 #define REGLE
 
-typedef struct regle {
-
-  Premisse premisse_regle ;
-  Proposition * conclusion ;
-
-} Regle ;
+#include <stdio.h>
+#include <stdlib.h>
+#include "list_structs.h"
 
 Proposition * ajout_premisse_queue(Regle * r, Proposition * p );
 
