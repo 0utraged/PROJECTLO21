@@ -1,6 +1,11 @@
 #ifndef LIST_STRUCTS
 #define LIST_STRUCTS
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+
 typedef enum {
 	false,
 	true
@@ -27,7 +32,7 @@ typedef Premisse_elem  * Premisse ;
 
 typedef struct regle {
 
-  Premisse premisse_regle ;
+  Premisse * premisse_regle ;
   struct regle * next ;
   Proposition * conclusion ;
 	bool is_true;

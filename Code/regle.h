@@ -3,6 +3,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "list_structs.h"
 
 Proposition * ajout_premisse_queue(Regle * r, Proposition * p );
@@ -23,6 +24,5 @@ bool is_empty_premisse(Regle * r);
 Regle * display_regle(Regle * r); //(uses display_premisse), on print simplement la conclusion en plus
 
 void display_premisse(Regle * r); // récursif, utilise display_proposition
-
 
 #endif

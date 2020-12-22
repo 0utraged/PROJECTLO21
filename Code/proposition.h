@@ -3,6 +3,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "list_structs.h"
 
 typedef enum {
@@ -23,6 +24,8 @@ Proposition * display_proposition(Proposition * p); //affiche le contenu et le b
 void delete_proposition(Proposition * p);  //récursif
 
 void set_bool(Proposition * p, bool b);
+
+char * create_str(char * input);
 
 #endif
 /*
