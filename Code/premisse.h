@@ -16,6 +16,4 @@ Proposition * display_proposition(Proposition * p); //affiche le contenu et le b
 
 void delete_premisse(Premisse_elem * p,Premisse_elem * conclusion);  //récursif, use with while different than conclusion, link previous to next
 
-bool is_in_premisse(Proposition * search, Premisse_elem * p);// use with while different than conclusion
-
 #endif

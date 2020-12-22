@@ -1,17 +1,21 @@
 #include "premisse.h"
 
-Premisse_elem * display_premisse(Premisse_elem * p){
+/*recursif pour gagner en efficacite, affiche l'ensemble des premisses d'une regle*/
+void display_premisse(Premisse_elem * p){
 
+  display_proposition(p->contenu_premisse);
+  Premisse_elem * next_p;
+  if(next_p != NULL){
+
+    next_p = p->next;
+    display_premisse(next_p);
+
+  }
+  return NULL;
 }
 
-Proposition * display_proposition(Proposition * p){
+void delete_premisse(Premisse_elem * p) {
+  delete_proposition(p->contenu_premisse);
 
-}
-
-void delete_premisse(Premisse_elem * p, Premisse_elem * conclusion) {
-
-}
-
-bool is_in_premisse(Proposition * search, Premisse_elem * prem){
-
+  return NULL;
 }
