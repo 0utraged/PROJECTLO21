@@ -3,6 +3,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "list_structs.h"
 
 Proposition * ajout_premisse_queue(Regle * r, Proposition * p );

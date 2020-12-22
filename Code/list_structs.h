@@ -1,6 +1,10 @@
 #ifndef LIST_STRUCTS
 #define LIST_STRUCTS
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
 typedef enum {
 	false,
 	true
