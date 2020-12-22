@@ -8,8 +8,9 @@
 typedef enum {
 	false,
 	true
-} Bool;
+} bool;
 
+/* aussi utilise pour la conclusion*/
 typedef struct proposition {
 
   char * contenu_proposition;
@@ -17,21 +18,19 @@ typedef struct proposition {
 
 } Proposition;
 
-/* aussi utilise pour la conclusion qui sera differenciee par son indication
-dnas la structure regle*/
+/* Lier le next de l'élément en queue à NULL; NE PAS LE LINK A CONCLUSION */
 typedef struct premisse_elem {
 
   Proposition * contenu_premisse;
   struct premisse_elem * next ;
 
-} Premisse_elem ;
+} Premisse ;
 
 /*List est un pointeur vers une liste d'éléments de structure ListElement*/
-typedef Premisse_elem  * Premisse ;
 
 typedef struct regle {
 
-  Premisse premisse_regle ;
+  Premisse * premisse_regle ;
   struct regle * next ;
   Proposition * conclusion ;
 	bool is_true;
