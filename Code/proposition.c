@@ -1,10 +1,17 @@
-#include "list_structs.h"
+#include "proposition.h"
 
-Proposition * display_proposition(Proposition * p){
+void display_proposition(Proposition * p){
+
+	  printf("Element : %s \n",p->contenu_proposition);
+		return NULL;
 
 }
 
 void delete_proposition(Proposition * p){
+
+	free(p->contenu_proposition);
+  free(p);
+	return NULL;
 
 }
 
@@ -19,7 +26,7 @@ void set_bool(Proposition * p, bool b){
   if (p != NULL){
     p->is_true = b;
   }
-  return 0;
+  return NULL;
 }
 
 char * create_str(char * input)

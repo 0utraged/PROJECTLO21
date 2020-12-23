@@ -6,10 +6,6 @@
 #include <string.h>
 #include "list_structs.h"
 
-typedef enum {
-  false,
-  true
-} bool;
 /*TODO: GENERAL PROJECT: 1. fonctions 2. moteur 3. boucle main = menu 4. reprendre une BC (init) puis sauvergarde si voulu (exit) */
 
 /*La structure Regle (List of Lists) est une liste d'adresses vers des listes d'éléments de structure ListElement*/
@@ -19,7 +15,7 @@ typedef enum {
 //On considère une règle comme une liste de propositions, dont le dernier élément est la
 //conclusion de la règle.
 
-Proposition * display_proposition(Proposition * p); //affiche le contenu et le boolean
+Proposition * display_proposition(Proposition * p); //affiche le contenu
 
 void delete_proposition(Proposition * p);  //récursif
 
