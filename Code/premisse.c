@@ -15,7 +15,10 @@ void display_premisse(Premisse_elem * p){
 }
 
 void delete_premisse(Premisse_elem * p) {
-  delete_proposition(p->contenu_premisse);
 
+  delete_proposition(p->contenu_premisse);
+  if (p->next!=NULL){
+    delete_premisse(p->next);
+  }
   return NULL;
 }
