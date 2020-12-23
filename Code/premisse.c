@@ -14,6 +14,7 @@ void display_premisse(Premisse_elem * p){
   return NULL;
 }
 
+//recursif
 void delete_premisse(Premisse_elem * p) {
 
   delete_proposition(p->contenu_premisse);
