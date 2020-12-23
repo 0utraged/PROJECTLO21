@@ -1,7 +1,7 @@
 #include "premisse.h"
 
 /*recursif pour gagner en efficacite, affiche l'ensemble des premisses d'une regle*/
-void display_premisse(Premisse_elem * p){
+void display_premisse(Premisse * p){
 
   display_proposition(p->contenu_premisse);
   Premisse_elem * next_p;
@@ -14,8 +14,8 @@ void display_premisse(Premisse_elem * p){
   return NULL;
 }
 
-void delete_premisse(Premisse_elem * p) {
+void delete_premisse(Premisse * p) {
   delete_proposition(p->contenu_premisse);
-
+  free(p)
   return NULL;
 }

@@ -14,10 +14,12 @@ BC create_base();
 
 Regle * create_regle(BC b);
 
-void delete_bc(BC * b); //récursif
+void delete_bc(BC b); //récursif
 
-void delete_regle(Regle * r, BC b);  //récursif
+void delete_regle(Regle * r);
 
-BC display_db(BC); //(uses display_regle), récursif
+void delete_premisse_regle(Premisse * p); //récursif
+
+void display_bc(BC b); //(uses display_regle), récursif
 
 #endif

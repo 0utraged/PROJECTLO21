@@ -79,7 +79,7 @@ Premisse * search_prop(const char * c, Premisse * r){
     if (i==len){
       return r;
     } else {
-			search_remove_prop(c, r->next)
+			search_prop(c, r->next)
     }
   }
 }
@@ -87,7 +87,9 @@ Premisse * search_prop(const char * c, Premisse * r){
 void display_regle(Regle * r){
 
   display_premisse(r->premisse_regle); //récursif, s'arrête à NULL (dernier élément de la prémisse)
-  printf("Conclusion : %s",r->conclusion->contenu_proposition);
+  if (r->conclusion!=NULL){
+    printf("Conclusion : %s\n",r->conclusion->contenu_proposition);
+  }
   return NULL;
 
 }

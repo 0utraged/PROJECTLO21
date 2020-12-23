@@ -34,6 +34,7 @@ typedef struct regle {
   struct regle * next ;
   Proposition * conclusion ;
 	bool is_true;
+	int id;
 
 } Regle ;
 
