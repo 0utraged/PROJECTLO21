@@ -6,9 +6,9 @@
 #include <string.h>
 #include "list_structs.h"
 
-Proposition * ajout_premisse_queue(Regle * r, Proposition * p );
+Regle * ajout_premisse_queue(Regle * r, Proposition * p );
 
-Proposition * ajout_conclusion_queue(Regle * r, Proposition * p );
+Regle * ajout_conclusion(Regle * r, Proposition * p );
 
 //Tester si une proposition appartient à la prémisse d’une règle, de manière récursive:
 bool is_in_premisse(Proposition * search, Premisse_elem * prem);

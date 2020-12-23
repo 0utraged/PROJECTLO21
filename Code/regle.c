@@ -24,18 +24,36 @@ else{
 }
 return l;*/
 
-Proposition * ajout_premisse_queue(Regle * r, char * c){
-
+Regle * ajout_premisse_queue(Regle * r, char * c){
+  Premisse * newel = (Premisse *)malloc(sizeof(Premisse));
+  newel->contenu_premisse = create_proposition(c);
+  newel->next = NULL;
+  Premisse * p = r->premisse_regle;
+  if (p==NULL){
+    p = newel;
+  } else {
+    while (p->next != NULL) {
+      p=p->next;
+    }
+    p->next = newel;
+  }
+  return r;
 }
 
-Proposition * ajout_conclusion_queue(Regle * r, Proposition * p ){
-
+/*aussi utilise pour modifier une conclusion existante*/
+Regle * ajout_conclusion(Regle * r, char * c){
+  Proposition * temp = r->conclusion;
+  if (temp!=NULL){
+    delete_proposition(temp);
+  }
+  temp = create_proposition(c);
+  return r;
 }
 
 bool is_in_premisse(const char *c, Regle * r){
-
+  return (search_prop(c,r->premisse_regle)!=NULL);
 }
-
+//TODO: bool est un enum on peut pasa juste return comme ca, sinon faut faire bool avec des define true 1 false 0 et typedef int bool
 bool is_empty_premisse(Regle * r){
   return (r->premisse_regle==NULL);
 }
@@ -48,7 +66,7 @@ Proposition * get_conclusion(Regle r){
   }
 
 }
-
+//TODO: contenu premisse plutot que premisse regle non?
 Premisse * search_prop(const char * c, Premisse * r){
 	if (r==NULL){
     return NULL;
@@ -61,8 +79,7 @@ Premisse * search_prop(const char * c, Premisse * r){
     if (i==len){
       return r;
     } else {
-			Premisse * prem = r->next;
-			search_remove_prop(c, prem)
+			search_remove_prop(c, r->next)
     }
   }
 }
