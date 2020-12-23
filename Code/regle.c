@@ -79,7 +79,7 @@ Premisse * search_prop(const char * c, Premisse * p){
     if (i==len){
       return p;
     } else {
-			search_prop(c, r->next)
+			search_prop(c, p->next)
     }
   }
 }
