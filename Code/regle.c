@@ -66,7 +66,7 @@ Proposition * get_conclusion(Regle r){
   }
 
 }
-//TODO: contenu premisse plutot que premisse regle non?
+//remplacé, plus lisible
 Premisse * search_prop(const char * c, Premisse * p){
 	if (p==NULL){
     return NULL;
@@ -87,7 +87,9 @@ Premisse * search_prop(const char * c, Premisse * p){
 void display_regle(Regle * r){
 
   display_premisse(r->premisse_regle); //récursif, s'arrête à NULL (dernier élément de la prémisse)
-  printf("Conclusion : %s",r->conclusion->contenu_proposition);
+  if(r->conclusion!=NULL){
+    printf("Conclusion : %s",r->conclusion->contenu_proposition);
+  }
   return NULL;
 
 }
