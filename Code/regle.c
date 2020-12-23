@@ -67,19 +67,19 @@ Proposition * get_conclusion(Regle r){
 
 }
 //TODO: contenu premisse plutot que premisse regle non?
-Premisse * search_prop(const char * c, Premisse * r){
-	if (r==NULL){
+Premisse * search_prop(const char * c, Premisse * p){
+	if (p==NULL){
     return NULL;
 	} else {
-    int len=strlen(r->premisse_regle->contenu_proposition);
+    int len=strlen(p->contenu_premisse->contenu_proposition);
 		int i = 0;
-    while(c+i==r->premisse_regle->contenu_proposition+i && r->premisse_regle->contenu_proposition+i!='\0'){
+    while(c+i==p->contenu_premisse->contenu_proposition+i && p->contenu_premisse->contenu_proposition+i!='\0'){
       i++;
     }
     if (i==len){
-      return r;
+      return p;
     } else {
-			search_remove_prop(c, r->next)
+			search_remove_prop(c, p->next)
     }
   }
 }
