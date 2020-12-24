@@ -16,11 +16,10 @@ void display_premisse(Premisse_elem * p){
 
 //recursif
 void delete_premisse(Premisse_elem * p) {
-  if (p!=NULL){
-    delete_proposition(p->contenu_premisse);
-    if (p->next!=NULL){
-      delete_premisse(p->next);
+
+  delete_proposition(p->contenu_premisse);
+  if (p->next!=NULL){
+    delete_premisse(p->next);
   }
-    return NULL;
-  }
+  return NULL;
 }
