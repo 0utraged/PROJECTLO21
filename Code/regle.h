@@ -17,10 +17,8 @@ bool is_empty_premisse(Regle * r);
 
 Proposition * get_conclusion(Regle r); // should print
 
-void search_prop(Proposition * p, Regle * r);
+Premisse * search_prop(Proposition * p, Regle * r);
 
-bool is_empty_premisse(Regle * r);
-
-Regle * display_regle(Regle * r); //(uses display_premisse), on print simplement la conclusion en plus
+Regle * display_regle(Regle * r); //(uses display_premisse), on print simplement la conclusion en plus
 
 #endif

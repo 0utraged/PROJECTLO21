@@ -53,7 +53,7 @@ Regle * ajout_conclusion(Regle * r, char * c){
 bool is_in_premisse(const char *c, Regle * r){
   return (search_prop(c,r->premisse_regle)!=NULL);
 }
-//TODO: bool est un enum on peut pasa juste return comme ca, sinon faut faire bool avec des define true 1 false 0 et typedef int bool
+
 bool is_empty_premisse(Regle * r){
   return (r->premisse_regle==NULL);
 }
@@ -64,8 +64,8 @@ Proposition * get_conclusion(Regle r){
   } else {
     return NULL;
   }
-
 }
+
 //remplacé, plus lisible
 Premisse * search_prop(const char * c, Premisse * p){
 	if (p==NULL){
@@ -73,7 +73,8 @@ Premisse * search_prop(const char * c, Premisse * p){
 	} else {
     int len=strlen(p->contenu_premisse->contenu_proposition);
 		int i = 0;
-    while(c+i==p->contenu_premisse->contenu_proposition+i && p->contenu_premisse->contenu_proposition+i!='\0'){
+    while(c+i==p->contenu_premisse->contenu_proposition+i &&
+      p->contenu_premisse->contenu_proposition+i!='\0'){
       i++;
     }
     if (i==len){

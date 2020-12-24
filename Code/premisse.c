@@ -6,7 +6,6 @@ void display_premisse(Premisse * p){
   display_proposition(p->contenu_premisse);
   Premisse_elem * next_p;
   if(next_p != NULL){
-
     next_p = p->next;
     display_premisse(next_p);
 
