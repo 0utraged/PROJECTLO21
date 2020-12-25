@@ -74,10 +74,57 @@ void reinit_premisse(Premisse * p){
   return NULL;
 }
 
+bool confirmation(){
+  char c;
+  do{
+    printf("Are you sure you want to do this? Y/N:\n");
+    scanf("%c",&c);
+    if (c!='y'&&c!='Y'&&c!='n'&&c!='N'){
+      printf("Enter a valid answer please!\n");
+    }
+  } while (c!='y'&&c!='Y'&&c!='n'&&c!='N');
+  if (c=='y'||c=='Y'){
+    return true;
+  } else {
+    return false;
+  }
+}
+
 void engine(BC b){
-  //TODO: voir comment on gere base de faits pour appeler marks_true_fact suffisamment de fois
-  printf("The possible conclusions are:\n");
-  conclusion_check_global(b,b);
+  int menu=0;
+  do {
+    printf("What do you want to do? Enter the proper number:\n
+      1:Enter a fact.\n
+      2:Launch the engine, get all possible conclusions from your facts and exit engine.\n
+      3:Exit engine now.\n
+      ");
+      scanf("%d",&menu);
+      switch(menu){
+        case 1: printf("Please enter your fact (max 100 characters):\n");
+        char * input = create_str(input());
+        printf("Your fact is: %s\n",input);
+        if(confirmation()==true){
+          marks_true_fact(b, input);
+        }
+        break;
+
+        case 2: if(confirmation()==true){
+          printf("The possible conclusions are:\n");
+          conclusion_check_global(b,b);
+          menu = 9;
+        }
+        break;
+
+        case 3: if(confirmation()==true){
+          printf("Exiting engine.\n");
+          menu = 9;
+        }
+        break;
+
+        default: menu = 0;
+        printf("Please enter a valid option!\n");
+      }
+  } while (menu!=9);
   reinit_bool(b);
   return NULL;
 }

@@ -35,8 +35,6 @@ typedef struct premisse_elem {
 
 } Premisse ;
 
-/*List est un pointeur vers une liste d'éléments de structure ListElement*/
-
 typedef struct regle {
 
   Premisse * premisse_regle ;
@@ -56,7 +54,7 @@ typedef Regle * BC;
 /*
 
 imposees:
-Créer une règle vide,
+o Créer une règle vide,
 o Ajouter une proposition à la prémisse d’une règle, l’ajout se fait en queue
 o Créer la conclusion d’une règle
 o Tester si une proposition appartient à la prémisse d’une règle, de manière récursive

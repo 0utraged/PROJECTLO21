@@ -23,6 +23,8 @@ void set_bool(Proposition * p, bool b);
 
 char * create_str(char * input);
 
+char * input();
+
 #endif
 /*
 

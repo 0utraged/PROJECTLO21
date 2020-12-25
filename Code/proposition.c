@@ -39,3 +39,11 @@ char * create_str(char * input)
   }
    return str;
 }
+
+//TODO: verifier si le stdin doit etre flush
+char * input(){
+	char inp[100]; //on limite arbitrairement a 100 les inputs
+	fgets(inp,sizeof(inp),stdin);
+	char* to_return = inp;
+	return to_return;
+}

@@ -27,6 +27,9 @@ void reinit_bool(BC b); //reccursif
 
 void reinit_premisse(Premisse * p);//reccursif
 
+//simple confirmation avant les etapes importantes entrainant des changements irreversibles
+bool confirmation();
+
 void engine(BC b);
 
 #endif
