@@ -5,9 +5,9 @@
 #include <stdlib.h>
 #include <string.h>
 #include "list_structs.h"
-
-/*TODO: GENERAL PROJECT: 1. fonctions 2. moteur 3. boucle main = menu 4. reprendre une BC (init) puis sauvergarde si voulu (exit) */
-
+#include "proposition.h"
+#include "premisse.h"
+#include "regle.h"
 /*La structure Regle (List of Lists) est une liste d'adresses vers des listes d'éléments de structure ListElement*/
 
 BC create_base();
@@ -21,5 +21,7 @@ void delete_regle(Regle * r);
 void delete_premisse_regle(Premisse * p); //récursif
 
 void display_bc(BC b); //(uses display_regle), récursif
+
+Regle * recherche_id(BC b,int id);//recursif, retrouve la regle voulue, pas de verif de base vide (fait en main)
 
 #endif

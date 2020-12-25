@@ -4,7 +4,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "proposition.h"
+#include "premisse.h"
+#include "regle.h"
+#include "baseconnaissance.h"
 #include "list_structs.h"
+
 
 //reccursif, verifie la presence d'un fait et passe is_true en true
 //pas de check de b vide car fait par la fonction engine

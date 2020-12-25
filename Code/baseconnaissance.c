@@ -65,6 +65,23 @@ void display_bc(BC b){
   return NULL;
 }
 
+Regle * recherche_id(BC b,int id){ //bien verif que b est pas NULL
+  if (id<1){
+    printf("ID unavailable!\n"); //id de 0 ou negative impossible
+    return NULL;
+  } else {
+    Regle * temp = b;
+    while(temp->id!=id&&temp->next!=NULL){
+      temp=temp->next;
+    }
+    if (temp->id==id){
+      return temp;
+    } else {
+      printf("ID too big!\n"); //ara ara
+      return NULL;
+    }
+  }
+}
 
 /* code pour delet d'une regle particuliere?
 if (b!=NULL){

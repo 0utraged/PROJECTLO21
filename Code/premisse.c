@@ -8,7 +8,6 @@ void display_premisse(Premisse * p){
   if(next_p != NULL){
     next_p = p->next;
     display_premisse(next_p);
-
   }
   return NULL;
 }

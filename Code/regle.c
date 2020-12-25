@@ -1,6 +1,6 @@
 #include "regle.h"
 
-/*TODO : Write ajout_premisse_queue()
+/*TODO: Write ajout_premisse_queue()
 Dl_List newel;
 Dl_List p=NULL;
 newel=(DListElement *)malloc(sizeof(DListElement));
@@ -44,7 +44,7 @@ Regle * ajout_premisse_queue(Regle * r, char * c){
 Regle * ajout_conclusion(Regle * r, char * c){
   Proposition * temp = r->conclusion;
   if (temp!=NULL){
-    delete_proposition(temp);
+    remove_conclusion(r);
   }
   temp = create_proposition(c);
   return r;
@@ -59,7 +59,7 @@ bool is_empty_premisse(Regle * r){
 }
 
 Proposition * get_conclusion(Regle r){
-  if(r!=NULL && r->conclusion){
+  if(r!=NULL && r->conclusion!=NULL){
     return r->conclusion;
   } else {
     return NULL;
@@ -86,46 +86,25 @@ Premisse * search_prop(const char * c, Premisse * p){
 }
 
 void display_regle(Regle * r){
-
+  printf("Premise:\n");
   display_premisse(r->premisse_regle); //récursif, s'arrête à NULL (dernier élément de la prémisse)
   if (r->conclusion!=NULL){
-    printf("Conclusion : %s\n",r->conclusion->contenu_proposition);
+    printf("Conclusion :\n%s\n",r->conclusion->contenu_proposition);
   }
   return NULL;
-
 }
 
 Regle * remove_head_premisse(Regle * r){
-
 	Premisse * p = r->premisse_regle;
-
 	if (p != NULL){
-
 		r->premisse_regle=p->next;
     delete_proposition( p-> contenu_premisse);
     free(p);
-
 	}
 	return p;
-
 }
 
-Regle * remove_conclusion(Regle * r){
-
-	Premisse * p = r->next;
-
-	if (p != NULL){
-
-		r->premisse_regle=p->next;
-		if(p!=NULL){
-
-			r->prev=NULL;
-
-		}
-
-		free(p);
-
-	}
-	return p;
-
+void remove_conclusion(Regle * r){
+  delete_proposition(r->conclusion);
+  return NULL;
 }

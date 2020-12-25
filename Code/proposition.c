@@ -12,7 +12,6 @@ void delete_proposition(Proposition * p){
 	free(p->contenu_proposition);
   free(p);
 	return NULL;
-
 }
 
 Proposition * create_proposition(char * c){
@@ -46,4 +45,11 @@ char * input(){
 	fgets(inp,sizeof(inp),stdin);
 	char* to_return = inp;
 	return to_return;
+}
+
+Proposition * create_proposition(char * c){
+	Proposition * newel = (Proposition*)malloc(sizeof(Proposition));
+	newel->contenu_proposition=c;
+	newel->is_true=false;
+	return newel;
 }
