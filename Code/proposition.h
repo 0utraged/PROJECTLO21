@@ -18,4 +18,7 @@ char * input();
 
 Proposition * create_proposition(char * c);
 
+//lowers the case, allows for more permissive checks when searching/comparing strings
+void tolower(char * c);
+
 #endif

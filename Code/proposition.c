@@ -53,3 +53,16 @@ Proposition * create_proposition(char * c){
 	newel->is_true=false;
 	return newel;
 }
+
+void tolower(char * c) {
+	if (c!=NULL){
+		int i=0;
+		while (c+i!='\0') {
+		  if (c+i>='A' && c+i<='Z') {
+		     c+i= c+i + 32;
+		  }
+		  i++;
+		}
+	}
+	return 0;
+}

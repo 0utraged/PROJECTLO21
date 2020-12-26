@@ -6,11 +6,10 @@ BC create_base(){
 }
 
 Regle * create_regle(BC b){
-  Regle* newel = (Regle*)malloc(sizeof(Regle));
+  Regle * newel = (Regle*)calloc(sizeof(Regle));
   newel->premisse_regle=NULL;
-  newel->next==NULL;
-  newel->conclusion==NULL;
-  newel->is_true==false;
+  newel->next=NULL;
+  newel->conclusion=NULL;
   if (b==NULL){
     newel->id=1;
     b=newel;
@@ -19,7 +18,7 @@ Regle * create_regle(BC b){
     while (temp->next!=NULL){
       temp=temp->next
     }
-    newel->id=temp->id+1;
+    newel->id = temp->id+1;
     temp->next = newel;
   }
   return b;
@@ -36,10 +35,12 @@ void delete_bc(BC b){
 }
 
 void delete_regle(Regle * r){
-  delete_proposition(r->conclusion);
-  delete_premisse_regle(r->premisse_regle);
-  free(r);
-  return NULL;
+  if (r!=NULL){
+    delete_proposition(r->conclusion);
+    delete_premisse_regle(r->premisse_regle);
+    free(r);
+    return NULL;
+  }
 }
 
 void delete_premisse_regle(Premisse * p){
@@ -60,7 +61,7 @@ void display_bc(BC b){
     display_regle(b);
     printf("\n");
   } else {
-    printf("Base vide!\n");
+    printf("Empty base!\n");
   }
   return NULL;
 }
@@ -71,7 +72,7 @@ Regle * recherche_id(BC b,int id){ //bien verif que b est pas NULL
     return NULL;
   } else {
     Regle * temp = b;
-    while(temp->id!=id&&temp->next!=NULL){
+    while(temp->id!=id && temp->next!=NULL){
       temp=temp->next;
     }
     if (temp->id==id){
@@ -83,7 +84,7 @@ Regle * recherche_id(BC b,int id){ //bien verif que b est pas NULL
   }
 }
 
-/* code pour delet d'une regle particuliere?
+/* code pour delet d'une regle particuliere? On fera delete_regle(recherche_id(b,id))
 if (b!=NULL){
   BC temp = b;
   while (temp->next!=NULL && temp->next->id!=id){
