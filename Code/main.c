@@ -7,13 +7,22 @@
 #include "baseconnaissance.h"
 #include "engine.h"
 #include "list_structs.h"
+#if defined POSIX
+  #define CLS system ( "clear" )
+#elif defined MSDOS || defined WIN32
+  #define CLS system ( "cls" )
+#endif
+
 
 int main(){
-  printf("Disclaimer: this programm is NOT case sensitive.\n");
+  printf("Disclaimer: this program is NOT case sensitive.\n");
   BC b;
   //TODO: fonction initialisation de la base
   int menu = 0;
+  Regle * temp = NULL;
+  bool boolean = false;
   do{
+
     printf("What do you want to do? Enter the proper number:\n
       1:Create a new empty knowledge base.\n
       2:Delete the knowledge base.\n
@@ -37,58 +46,114 @@ int main(){
       scanf("%d",&menu);
       switch(menu){
         case 1:
+          if(confirmation()==true){
+            delete_bc(b);
+            b = create_base();
+            printf("New base created.\n");
+          }
         break;
 
         case 2:
+          delete_bc(b);
+          b=NULL;
+          printf("Base deleted, please create a new one!\n");
         break;
 
         case 3:
+          display_bc(b);
         break;
 
         case 4:
+          b=create_regle(b);
+          printf("Empty rule created.\n");
         break;
 
         case 5:
+          display_regle(recherche_id(b,id_input()));
         break;
 
         case 6:
+          temp = recherche_id(b,id_input()-1);
+          link_regle(temp);
         break;
 
         case 7:
+          temp = recherche_id(b,id_input());
+          delete_premisse_regle(temp->premisse_regle);
+          temp->premisse_regle=NULL;
+          printf("Premise deleted!\n");
         break;
 
         case 8:
+          temp = recherche_id(b,id_input());
+          if (temp!=NULL){
+            ajout_premisse_queue(temp,create_str(input()));
+          }
         break;
 
         case 9:
+          temp = recherche_id(b,id_input());
+          if(temp!=NULL){
+            ajout_conclusion(temp,create_str(input()));
+          }
         break;
 
         case 10:
+          temp = recherche_id(b,id_input());
+          if(temp!=NULL){
+            boolean = is_in_premisse(input(), temp);
+          }
+          print_bool(boolean);
         break;
 
         case 11:
+          temp = recherche_id(b,id_input());
+          if(temp!=NULL){
+            boolean = is_empty_premisse(temp);
+          }
+          print_bool(boolean);
         break;
 
         case 12:
+          temp = recherche_id(b,id_input());
+          if (temp!=NULL){
+            printf("Conclusion: %s\n",temp->conclusion->contenu_proposition);
+          }
         break;
 
         case 13:
+          display_premisse(recherche_id(b,id_input())->premisse_regle);
         break;
 
         case 14:
+          temp = recherche_id(b,id_input());
+          if (temp!=NULL){
+            link_premisse(temp->contenu_premisse,create_str(input()));
+          }
         break;
 
         case 15:
+          temp = recherche_id(b,id_input());
+          if (temp!=NULL){
+            display_proposition(temp->premisse_regle->contenu_premisse);
+          }
         break;
 
         case 16:
+          if(confirmation()==true){
+            engine(b);
+          }
         break;
 
         case 17:
+          write_to_file(b);
         break;
 
         case 18:
-          menu=99;
+          if(confirmation()==true){
+            printf("Exiting program.\n");
+            menu = 99;
+          }
         break;
 
         default:

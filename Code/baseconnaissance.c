@@ -84,6 +84,13 @@ Regle * recherche_id(BC b,int id){ //bien verif que b est pas NULL
   }
 }
 
+int id_input(){
+  int temp;
+  printf("ID?\n");
+  scanf("%d", &temp);
+  return temp;
+}
+
 /* code pour delet d'une regle particuliere? On fera delete_regle(recherche_id(b,id))
 if (b!=NULL){
   BC temp = b;

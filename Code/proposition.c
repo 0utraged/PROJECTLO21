@@ -28,6 +28,15 @@ void set_bool(Proposition * p, bool b){
   return NULL;
 }
 
+void print_bool(bool b){
+  if (b != false){
+    printf("true");
+  } else {
+		printf("false");
+	}
+  return NULL;
+}
+
 char * create_str(char * input)
 {
   int size_loop;
@@ -43,8 +52,7 @@ char * create_str(char * input)
 char * input(){
 	char inp[100]; //on limite arbitrairement a 100 les inputs
 	fgets(inp,sizeof(inp),stdin);
-	char* to_return = inp;
-	return to_return;
+	return tolower(inp);
 }
 
 Proposition * create_proposition(char * c){

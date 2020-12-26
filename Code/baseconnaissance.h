@@ -24,4 +24,6 @@ void display_bc(BC b); //(uses display_regle), récursif
 
 Regle * recherche_id(BC b,int id);//recursif, retrouve la regle voulue, pas de verif de base vide (fait en main)
 
+int id_input();
+
 #endif
