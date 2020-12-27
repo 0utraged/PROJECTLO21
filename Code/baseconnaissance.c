@@ -90,20 +90,3 @@ int id_input(){
   scanf("%d", &temp);
   return temp;
 }
-
-/* code pour delet d'une regle particuliere? On fera delete_regle(recherche_id(b,id))
-if (b!=NULL){
-  BC temp = b;
-  while (temp->next!=NULL && temp->next->id!=id){
-    temp=temp->next;
-  }
-  if (temp->next == NULL){
-    printf("ID incorrect!\n");
-  } else {
-    Regle * to_delete = temp->next;
-    temp->next = temp->next->next;
-    delete_regle(to_delete,b);
-  }
-}
-return NULL;
-*/

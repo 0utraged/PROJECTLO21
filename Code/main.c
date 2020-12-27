@@ -54,9 +54,11 @@ int main(){
         break;
 
         case 2:
-          delete_bc(b);
-          b=NULL;
-          printf("Base deleted, please create a new one!\n");
+          if(confirmation()==true){
+            delete_bc(b);
+            b=NULL;
+            printf("Base deleted, please create a new one!\n");
+          }
         break;
 
         case 3:
