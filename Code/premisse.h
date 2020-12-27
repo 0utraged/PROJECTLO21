@@ -13,4 +13,6 @@ void display_premisse(Premisse * p);// récursif, utilise display_proposition
 
 void delete_premisse(Premisse * p);
 
+void link_premisse(Regle * r ,const char * c);
+
 #endif
