@@ -55,11 +55,11 @@ void delete_premisse_regle(Premisse * p){
 
 void display_bc(BC b){
   if (b!=NULL){
+    display_regle(b);
+    printf("\n");
     if(b->next!=NULL){
       display_bc(b->next);
     }
-    display_regle(b);
-    printf("\n");
   } else {
     printf("Empty base!\n");
   }

@@ -28,15 +28,6 @@ void set_bool(Proposition * p, bool b){
   return NULL;
 }
 
-void print_bool(bool b){
-  if (b != false){
-    printf("true");
-  } else {
-		printf("false");
-	}
-  return NULL;
-}
-
 char * create_str(char * input)
 {
   int size_loop;
@@ -52,25 +43,16 @@ char * create_str(char * input)
 char * input(){
 	char inp[100]; //on limite arbitrairement a 100 les inputs
 	fgets(inp,sizeof(inp),stdin);
-	return tolower(inp);
+	return str_tolower(inp);
 }
 
-Proposition * create_proposition(char * c){
-	Proposition * newel = (Proposition*)malloc(sizeof(Proposition));
-	newel->contenu_proposition=c;
-	newel->is_true=false;
-	return newel;
-}
-
-void tolower(char * c) {
+char * c str_tolower(char * c) {
 	if (c!=NULL){
 		int i=0;
 		while (*(c+i)!='\0') {
-		  if (*(c+i)>='A' && *(c+i)<='Z') {
-		     *(c+i)= *(c+i) + 32;
-		  }
+		  *(c+i)=tolower(*(c+i));
 		  i++;
 		}
 	}
-	return 0;
+	return c;
 }

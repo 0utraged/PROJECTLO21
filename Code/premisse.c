@@ -2,12 +2,13 @@
 
 /*recursif pour gagner en efficacite, affiche l'ensemble des premisses d'une regle*/
 void display_premisse(Premisse * p){
-
-  display_proposition(p->contenu_premisse);
-  Premisse_elem * next_p;
-  if(next_p != NULL){
-    next_p = p->next;
-    display_premisse(next_p);
+  if (p==NULL){
+    printf("Empty premise!\n");
+  } else {
+    display_proposition(p->contenu_premisse);
+    if(p->next != NULL){
+      display_premisse(p->next);
+    }
   }
   return NULL;
 }
@@ -18,6 +19,7 @@ void delete_premisse(Premisse * p) {
   return NULL;
 }
 
+//TODO: si premier element est le bon, marche pas
 void link_premisse(Premisse * p ,const char * c){
   Premisse * pnext = p;
   Premisse * plast = search_prop(c,p);
@@ -27,7 +29,7 @@ void link_premisse(Premisse * p ,const char * c){
       delete_premisse(p->next);
       printf("Proposition deleted!\n");
       p->next = pnext;
-      return NULL;
+      plast = NULL;
     }
     pnext=pnext->next;
   }

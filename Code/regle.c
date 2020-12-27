@@ -1,29 +1,5 @@
 #include "regle.h"
 
-/*TODO: Write ajout_premisse_queue()
-Dl_List newel;
-Dl_List p=NULL;
-newel=(DListElement *)malloc(sizeof(DListElement));
-newel->word=malloc(strlen(w)+1);
-strcpy(newel->word, w);
-newel->next=NULL;
-while
-if(l == NULL){
-  l=newel;
-}
-else{
-
-  p= l;
-
-  while (p->next !=NULL){
-    p=p->next;
-  }
-
-  p->next=newel;
-  newel->prev=p;
-}
-return l;*/
-
 Regle * ajout_premisse_queue(Regle * r, char * c){
   Premisse * newel = (Premisse *)malloc(sizeof(Premisse));
   newel->contenu_premisse = create_proposition(c);
@@ -48,7 +24,6 @@ Regle * ajout_conclusion(Regle * r, char * c){
       remove_conclusion(r);
     }
     temp = create_proposition(c);
-    return r;
   }
   return r;
 }
@@ -59,14 +34,6 @@ bool is_in_premisse(const char *c, Regle * r){
 
 bool is_empty_premisse(Regle * r){
   return (r->premisse_regle==NULL);
-}
-
-Proposition * get_conclusion(Regle r){
-  if(r!=NULL && r->conclusion!=NULL){
-    return r->conclusion;
-  } else {
-    return NULL;
-  }
 }
 
 //remplacé, plus lisible
@@ -95,8 +62,10 @@ void display_regle(Regle * r){
     if (r->conclusion!=NULL){
       printf("Conclusion :\n%s\n",r->conclusion->contenu_proposition);
     }
-    return NULL;
+  } else {
+    printf("Empty rule!\n");
   }
+  return NULL;
 }
 
 void link_regle(Regle* r){
@@ -118,7 +87,7 @@ Regle * remove_head_premisse(Regle * r){
     delete_proposition( p-> contenu_premisse);
     free(p);
 	}
-	return p;
+	return r;
 }
 
 void remove_conclusion(Regle * r){

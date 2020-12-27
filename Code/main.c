@@ -69,6 +69,7 @@ int main(){
         break;
 
         case 5:
+          printf("Rule:\n");
           display_regle(recherche_id(b,id_input()));
         break;
 
