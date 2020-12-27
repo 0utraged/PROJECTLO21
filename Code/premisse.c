@@ -20,18 +20,37 @@ void delete_premisse(Premisse * p) {
 }
 
 //TODO: si premier element est le bon, marche pas
-void link_premisse(Premisse * p ,const char * c){
-  Premisse * pnext = p;
-  Premisse * plast = search_prop(c,p);
-  while (pnext->next !=NULL && plast != NULL){
-    if (pnext->next==plast){
-      pnext = p->next->next;
-      delete_premisse(p->next);
-      printf("Proposition deleted!\n");
-      p->next = pnext;
-      plast = NULL;
+void link_premisse(Regle * r ,const char * c){
+
+  Premisse * pnext = r->premisse_regle;
+  Premisse * p = r->premisse_regle;
+  Premisse * plast = search_prop(c,r->premisse_regle);
+
+  if (r->premisse_regle==plast){
+
+    pnext = r->premisse_regle->next;
+    delete_premisse(r->premisse_regle);
+    printf("Proposition deleted!\n");
+    r->premisse_regle = pnext;
+    plast = NULL;
+    return NULL;
+
+  } else {
+
+    while (pnext->next !=NULL && plast != NULL){
+
+      if (pnext->next==plast){
+
+        pnext = p->next->next;
+        delete_premisse(p->next);
+        printf("Proposition deleted!\n");
+        p->next = pnext;
+        plast = NULL;
+
+      }
+
+      pnext=pnext->next;
     }
-    pnext=pnext->next;
   }
   return NULL;
 }
