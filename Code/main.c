@@ -132,7 +132,7 @@ int main(){
         case 14:
           temp = recherche_id(b,id_input());
           if (temp!=NULL){
-            link_premisse(temp->contenu_premisse,create_str(input()));
+            link_premisse(temp,create_str(input()));
           }
         break;
 
