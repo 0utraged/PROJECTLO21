@@ -7,6 +7,7 @@
 #include "baseconnaissance.h"
 #include "engine.h"
 #include "list_structs.h"
+#include "fileio.h"
 #if defined POSIX
   #define CLS system ( "clear" )
 #elif defined MSDOS || defined WIN32

@@ -8,6 +8,7 @@
 #include "proposition.h"
 #include "premisse.h"
 #include "regle.h"
+#include "baseconnaissance.h"
 /*La structure Regle (List of Lists) est une liste d'adresses vers des listes d'éléments de structure ListElement*/
 
 //Prototypes de fonctions:

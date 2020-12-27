@@ -39,8 +39,8 @@ void delete_regle(Regle * r){
     delete_proposition(r->conclusion);
     delete_premisse_regle(r->premisse_regle);
     free(r);
-    return NULL;
   }
+  return NULL;
 }
 
 void delete_premisse_regle(Premisse * p){
