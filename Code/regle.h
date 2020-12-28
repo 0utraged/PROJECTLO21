@@ -25,6 +25,6 @@ Regle * remove_head_premisse(Regle * r);
 
 void remove_conclusion(Regle * r);
 
-void link_regle(Regle* r);
+void link_regle(Regle* r, int iddel);
 
 #endif

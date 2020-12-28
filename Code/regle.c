@@ -56,6 +56,7 @@ Premisse * search_prop(const char * c, Premisse * p){
 
 void display_regle(Regle * r){
   if(r!=NULL){
+    printf("Rule ID: %d\n",r->id);
     printf("Premise:\n");
     display_premisse(r->premisse_regle); //récursif, s'arrête à NULL (dernier élément de la prémisse)
     if (r->conclusion!=NULL){
@@ -69,15 +70,23 @@ void display_regle(Regle * r){
   return NULL;
 }
 
-void link_regle(Regle* r){
-  if (r->next==NULL && r!=NULL){
-    printf("ID too big!\n");
-  } else {
-    Regle* rnext = r->next->next;
-    delete_regle(r->next);
-    printf("Rule deleted!\n");
-    r->next = rnext;
-  }
+void link_regle(Regle* r,int iddel){
+    if(r==NULL){
+        return NULL;
+    }
+    if (r->next==NULL && r!=NULL){
+        printf("ID too big!\n");
+    } else {
+        if (r->next->id==iddel){
+            Regle* rnext = r->next->next;
+            delete_regle(r->next);
+            r->next = rnext;
+            printf("Done!\n");
+        }else{
+            link_regle(r->next,iddel);
+        }
+    }
+
 }
 
 
