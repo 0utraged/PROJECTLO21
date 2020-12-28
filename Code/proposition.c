@@ -1,7 +1,7 @@
 #include "proposition.h"
 
 void display_proposition (Proposition * p){
-    printf("%s",p->contenu_proposition);
+    printf("%s\n",p->contenu_proposition);
 }
 
 void delete_proposition(Proposition * p){
@@ -56,6 +56,7 @@ char * create_str(char * inp)
 char * input(){
   char * inp = (char*) malloc((101)*sizeof(char));
     fgets(inp,100,stdin);
+    strtok(inp, "\n");
     return inp;
 }
 

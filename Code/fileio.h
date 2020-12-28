@@ -12,7 +12,7 @@
 /*La structure Regle (List of Lists) est une liste d'adresses vers des listes d'éléments de structure ListElement*/
 
 //Prototypes de fonctions:
-void read_from_file(BC * b);
+BC read_from_file(BC b);
 
 void write_to_file(BC * b);
 

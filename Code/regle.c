@@ -2,7 +2,6 @@
 
 
 Regle * ajout_premisse_queue(Regle * r, char * c){
-
   Premisse * newel = (Premisse *)malloc(sizeof(Premisse));
   newel->contenu_premisse = create_proposition(c);
   newel->next = NULL;
