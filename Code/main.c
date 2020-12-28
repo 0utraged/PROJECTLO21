@@ -76,9 +76,7 @@ int main(){
             memset(c, '\0', 101);
             input();
             c[0] = input();
-            print_char(&c[0]);
-            print_char(&c[0]);print_char(&c[0]);print_char(&c[0]);print_char(&c[0]);
-            ajout_premisse_queue(temp,c);
+            ajout_premisse_queue(temp,c[0]);
           }
         break;
 
@@ -88,7 +86,7 @@ int main(){
             memset(c, '\0', 101);
             input();
             c[0] = input();
-            ajout_conclusion(temp,c);
+            ajout_conclusion(temp,c[0]);
           }
         break;
 
@@ -128,7 +126,7 @@ int main(){
             memset(c, '\0', 101);
             input();
             c[0] = input();
-            link_premisse(temp,c);
+            link_premisse(temp,c[0]);
           }
         break;
 

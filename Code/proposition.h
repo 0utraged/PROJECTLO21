@@ -10,6 +10,8 @@ void display_proposition(Proposition * p); //affiche le contenu
 
 void delete_proposition(Proposition * p);
 
+void print_char(char * c);
+
 void set_bool(Proposition * p, bool b);
 
 void print_bool(bool b);

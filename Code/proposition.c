@@ -1,30 +1,26 @@
 #include "proposition.h"
 
 void display_proposition (Proposition * p){
-
-    printf("Element : %s \n",p->contenu_proposition);
-    return NULL;
-
+    printf("%s",p->contenu_proposition);
 }
 
 void delete_proposition(Proposition * p){
     if(p==NULL){
         return NULL;
     }
+    memset(p->contenu_proposition,'\0',101);
     free(p->contenu_proposition);
     free(p);
 	return NULL;
 }
 
-void print_char(char * c[]) {
-printf("%s",c[0]);
-return NULL;
-}
 
 Proposition * create_proposition(char * c){
   Proposition * p_new = (Proposition *)malloc(sizeof(Proposition));
-  p_new -> is_true = false;
-  p_new -> contenu_proposition = c ;
+  p_new->contenu_proposition = (char *)malloc(101*sizeof(char));
+  p_new->is_true = false;
+  int l = strlen(c);
+  memcpy(p_new->contenu_proposition,c,101);
   return p_new;
 }
 
@@ -45,13 +41,13 @@ void print_bool(bool b){
 }
 
 
-char * create_str(char * input)
+char * create_str(char * inp)
 {
   int size_loop;
-  size_loop = strlen(input);
+  size_loop = strlen(inp);
   char *str = (char *)malloc(sizeof(char)*(size_loop+1));
   for(int i=0; i <= size_loop ; i++){
-  *(str + i) = *(input + i) ;
+  *(str + i) = *(inp + i) ;
   }
    return str;
 }
@@ -59,8 +55,8 @@ char * create_str(char * input)
 //TODO: verifier si le stdin doit etre flush
 char * input(){
   char * inp = (char*) malloc((101)*sizeof(char));
-	fgets(inp,sizeof(inp),stdin);
-	return str_tolower(inp);
+    fgets(inp,100,stdin);
+    return inp;
 }
 
 char * str_tolower(char * c) {

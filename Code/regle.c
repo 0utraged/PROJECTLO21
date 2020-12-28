@@ -7,8 +7,8 @@ Regle * ajout_premisse_queue(Regle * r, char * c){
   newel->contenu_premisse = create_proposition(c);
   newel->next = NULL;
   Premisse * p = r->premisse_regle;
-  if (p==NULL){
-    p = newel;
+  if (r->premisse_regle==NULL){
+    r->premisse_regle = newel;
   } else {
     while (p->next != NULL) {
       p=p->next;
@@ -26,6 +26,7 @@ Regle * ajout_conclusion(Regle * r, char * c){
       remove_conclusion(r);
     }
     temp = create_proposition(c);
+    r->conclusion=temp;
   }
   return r;
 }
@@ -41,18 +42,14 @@ bool is_empty_premisse(Regle * r){
 //remplacé, plus lisible
 Premisse * search_prop(const char * c, Premisse * p){
 	if (p==NULL){
-    return NULL;
+        return NULL;
 	} else {
-    int len=strlen(p->contenu_premisse->contenu_proposition);
-		int i = 0;
-    while(c+i==p->contenu_premisse->contenu_proposition+i &&
-      p->contenu_premisse->contenu_proposition+i!='\0'){
-      i++;
-    }
-    if (i==len){
-      return p;
-    } else {
-        search_prop(c, p->next);
+        int len=strlen(p->contenu_premisse->contenu_proposition);
+        if(strcmp(c,p->contenu_premisse->contenu_proposition)==0){
+            return p;
+        }
+        else {
+            search_prop(c, p->next);
     }
   }
 }
@@ -60,11 +57,11 @@ Premisse * search_prop(const char * c, Premisse * p){
 void display_regle(Regle * r){
   if(r!=NULL){
     printf("Premise:\n");
-    if(r->premisse_regle!=NULL){
-        display_premisse(r->premisse_regle); //récursif, s'arrête à NULL (dernier élément de la prémisse)
-    }
+    display_premisse(r->premisse_regle); //récursif, s'arrête à NULL (dernier élément de la prémisse)
     if (r->conclusion!=NULL){
-      printf("Conclusion :\n%s\n",r->conclusion->contenu_proposition);
+
+      printf("Conclusion: ");
+      display_proposition (r->conclusion);
     }
   } else {
     printf("Empty rule!\n");
