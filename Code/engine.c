@@ -2,7 +2,7 @@
 
 void marks_true_fact(BC b, char* c){
   if (b->next!=NULL){
-    marks_true_fact(b->next);
+    marks_true_fact(b->next,c);
   }
   Premisse * p=search_prop(c,p);
   if(p!=NULL){
@@ -93,18 +93,14 @@ bool confirmation(){
 void engine(BC b){
   int menu=0;
   do {
-    printf("What do you want to do? Enter the proper number:\n
-      1:Enter a fact.\n
-      2:Launch the engine, get all possible conclusions from your facts and exit engine.\n
-      3:Exit engine now.\n
-      ");
+    printf("What do you want to do? Enter the proper number:\n 1:Enter a fact.\n 2:Launch the engine, get all possible conclusions from your facts and exit engine.\n 3:Exit engine now.\n ");
       scanf("%d",&menu);
       switch(menu){
         case 1: printf("Please enter your fact (max 100 characters):\n");
-        char * input = create_str(input());
-        printf("Your fact is: %s\n",input);
+        char * temp_input = create_str(input());
+        printf("Your fact is: %s\n",temp_input);
         if(confirmation()==true){
-          marks_true_fact(b, input);
+          marks_true_fact(b, temp_input);
         }
         break;
 

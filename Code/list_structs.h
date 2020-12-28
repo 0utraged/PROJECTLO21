@@ -31,23 +31,23 @@ typedef struct proposition {
 typedef struct premisse_elem {
 
   Proposition * contenu_premisse;
-  struct premisse_elem * next ;
+  struct premisse_elem * next;
 
-} Premisse ;
+} Premisse;
 
 typedef struct regle {
 
   Premisse * premisse_regle ;
-  struct regle * next ;
+  struct regle * next;
   Proposition * conclusion ;
 	bool is_true;
 	int id;
 
-} Regle ;
+} Regle;
 
 /*Liste chainee de listes chainees (premisse_regle de Regle) pour contenir
  les differentes regles*/
-typedef Regle * BC;
+typedef Regle* BC;
 
 #endif
 

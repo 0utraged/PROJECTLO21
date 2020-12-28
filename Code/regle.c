@@ -1,6 +1,8 @@
 #include "regle.h"
 
+
 Regle * ajout_premisse_queue(Regle * r, char * c){
+
   Premisse * newel = (Premisse *)malloc(sizeof(Premisse));
   newel->contenu_premisse = create_proposition(c);
   newel->next = NULL;
@@ -50,7 +52,7 @@ Premisse * search_prop(const char * c, Premisse * p){
     if (i==len){
       return p;
     } else {
-			search_prop(c, p->next)
+        search_prop(c, p->next);
     }
   }
 }
@@ -58,7 +60,9 @@ Premisse * search_prop(const char * c, Premisse * p){
 void display_regle(Regle * r){
   if(r!=NULL){
     printf("Premise:\n");
-    display_premisse(r->premisse_regle); //récursif, s'arrête à NULL (dernier élément de la prémisse)
+    if(r->premisse_regle!=NULL){
+        display_premisse(r->premisse_regle); //récursif, s'arrête à NULL (dernier élément de la prémisse)
+    }
     if (r->conclusion!=NULL){
       printf("Conclusion :\n%s\n",r->conclusion->contenu_proposition);
     }

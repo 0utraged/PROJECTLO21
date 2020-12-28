@@ -11,20 +11,20 @@ void read_from_file(BC * b)
     fscanf(fp, "%c", &tempc[n] );
     while(fscanf(fp, "%c", &tempc[n] ) != EOF ){
 
-      if(&tempc[n]=='/'){
+      if(tempc[n]=='/'){
         tempr = create_regle(b);
         memset(tempc,'\0',101);
         n=0;
       }
 
-      if(&tempc[n]=='&'){
-        &tempc[n]='\0';
+      if(tempc[n]=='&'){
+        tempc[n]='\0';
         ajout_premisse_queue(tempr,tempc);
         memset(tempc,'\0',101);
         n=0;
       }
-      if([&tempc[n]==':'){
-        &tempc[n]='\0';
+      if(tempc[n]==':'){
+        tempc[n]='\0';
         ajout_conclusion(tempr,tempc);
         memset(tempc,'\0',101);
         n=0;
@@ -57,7 +57,7 @@ void write_to_file(BC * b)
 
           while(tempp!=NULL){
 
-            fprintf(fp, "%c",tempp->contenu_proposition);
+            fprintf(fp, "%c",tempp->contenu_premisse->contenu_proposition);
             fprintf(fp, "%c", '&');
             tempp=tempp->next;
 
@@ -67,7 +67,6 @@ void write_to_file(BC * b)
         if(r->conclusion!=NULL){
           fprintf(fp, "%c",r->conclusion->contenu_proposition);
           fprintf(fp, "%c", ':');
-          n=0;
         }
         r=r->next;
       }

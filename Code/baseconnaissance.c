@@ -6,36 +6,42 @@ BC create_base(){
 }
 
 Regle * create_regle(BC b){
-  Regle * newel = (Regle*)calloc(sizeof(Regle));
+  Regle * newel = (Regle*)malloc(sizeof(Regle));
   newel->premisse_regle=NULL;
   newel->next=NULL;
   newel->conclusion=NULL;
+  newel->id=0;
   if (b==NULL){
     newel->id=1;
     b=newel;
   } else{
     Regle * temp = b;
     while (temp->next!=NULL){
-      temp=temp->next
+      temp=temp->next;
     }
     newel->id = temp->id+1;
+    printf("New Rule: ID %d \n",newel->id);
     temp->next = newel;
   }
   return b;
 }
 
 void delete_bc(BC b){
+Regle * rtemp = NULL;
   if (b!=NULL){
-    if(b->next!=NULL){
-      delete_bc(b->next);
-    }
+    rtemp = b -> next;
     delete_regle(b);
+    if(rtemp!=NULL){
+      delete_bc(rtemp);
+    }
   }
   return NULL;
 }
 
 void delete_regle(Regle * r){
+
   if (r!=NULL){
+
     delete_proposition(r->conclusion);
     delete_premisse_regle(r->premisse_regle);
     free(r);
@@ -44,12 +50,14 @@ void delete_regle(Regle * r){
 }
 
 void delete_premisse_regle(Premisse * p){
-  if (p!=NULL){
-    if(p->next!=NULL){
-      delete_premisse_regle(p->next);
+    Premisse * ptemp = NULL;
+    if (p!=NULL){
+        ptemp = p -> next;
+        delete_premisse(p);
+        if(ptemp!=NULL){
+          delete_premisse_regle(ptemp);
+        }
     }
-    delete_premisse(p);
-  }
   return NULL;
 }
 
@@ -72,7 +80,7 @@ Regle * recherche_id(BC b,int id){ //bien verif que b est pas NULL
     return NULL;
   } else {
     Regle * temp = b;
-    while(temp->id!=id && temp->next!=NULL){
+    while(temp->id!=id && temp->next!=NULL && b!= NULL){
       temp=temp->next;
     }
     if (temp->id==id){

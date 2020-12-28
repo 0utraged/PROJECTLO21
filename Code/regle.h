@@ -17,9 +17,9 @@ bool is_in_premisse(const char *c, Regle * r);
 
 bool is_empty_premisse(Regle * r);
 
-Premisse * search_prop(Proposition * p, Regle * r);
+Premisse * search_prop(const char * c, Premisse * p);
 
-void display_regle(Regle * r); //(uses display_premisse), on print simplement la conclusion en plus
+void display_regle(Regle* r); //(uses display_premisse), on print simplement la conclusion en plus
 
 Regle * remove_head_premisse(Regle * r);
 
