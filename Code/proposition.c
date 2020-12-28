@@ -33,9 +33,9 @@ void set_bool(Proposition * p, bool b){
 
 void print_bool(bool b){
   if (b != false){
-    printf("true");
+    printf("true\n");
   } else {
-		printf("false");
+		printf("false\n");
 	}
   return NULL;
 }
