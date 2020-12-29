@@ -37,4 +37,6 @@ bool confirmation();
 
 void engine(BC b);
 
+int menu_bf();
+
 #endif
