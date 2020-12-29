@@ -41,7 +41,7 @@ bool is_empty_premisse(Regle * r){
 //remplacé, plus lisible
 Premisse * search_prop(const char * c, Premisse * p){
 	if (p==NULL){
-        return NULL;
+        return;
 	} else {
         int len=strlen(p->contenu_premisse->contenu_proposition);
         if(strcmp(c,p->contenu_premisse->contenu_proposition)==0){
@@ -66,12 +66,12 @@ void display_regle(Regle * r){
   } else {
     printf("Empty rule!\n");
   }
-  return NULL;
+  return;
 }
 
 void link_regle(Regle* r,int iddel){
     if(r==NULL){
-        return NULL;
+        return;
     }
     if (r->next==NULL && r!=NULL){
         printf("ID too big!\n");
@@ -101,5 +101,5 @@ Regle * remove_head_premisse(Regle * r){
 
 void remove_conclusion(Regle * r){
   delete_proposition(r->conclusion);
-  return NULL;
+  return;
 }

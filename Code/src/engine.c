@@ -8,7 +8,7 @@ void marks_true_fact(BC b, char* c){
     if (b->next!=NULL){
     marks_true_fact(b->next,c);
   }
-  return NULL;
+  return;
 }
 
 bool conclusion_check(Regle * r){
@@ -48,7 +48,7 @@ void conclusion_check_global (BC b, BC origin_point){
       //pas besoin de recheck la conclusion actuelle, on recommence a la suite
     }
   }
-  return NULL;
+  return;
 }
 
 void reinit_bool(BC b){
@@ -61,7 +61,7 @@ void reinit_bool(BC b){
     }
     reinit_premisse(b->premisse_regle);
   }
-  return NULL;
+  return;
 }
 
 void reinit_premisse(Premisse * p){
@@ -71,7 +71,7 @@ void reinit_premisse(Premisse * p){
     }
     set_bool(p->contenu_premisse,false);
   }
-  return NULL;
+  return;
 }
 
 bool confirmation(){
@@ -123,7 +123,7 @@ void engine(BC b){
       }
   } while (menu!=99);
   reinit_bool(b);
-  return NULL;
+  return;
 }
 
 int menu_bf(){
@@ -289,5 +289,5 @@ int menu_bf(){
       }
 
     }
-    return 0;
+    return;
 }

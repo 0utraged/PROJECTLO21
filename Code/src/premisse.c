@@ -11,13 +11,13 @@ void display_premisse(Premisse * p){
       display_premisse(p->next);
     }
   }
-  return NULL;
+  return;
 }
 
 void delete_premisse(Premisse * p) {
   delete_proposition(p->contenu_premisse);
   free(p);
-  return NULL;
+  return;
 }
 
 //TODO: si premier element est le bon, marche pas
@@ -28,7 +28,7 @@ void link_premisse(Regle * r ,const char * c){
     Premisse * plast = search_prop(c,r->premisse_regle);
     if (plast==NULL){
         printf("The premise is empty or no match was found !\n");
-        return NULL;
+        return;
     }
 
     if (r->premisse_regle==plast){
@@ -55,5 +55,5 @@ void link_premisse(Regle * r ,const char * c){
           pnext=pnext->next;
         }
     }
-    return NULL;
+    return;
 }

@@ -6,11 +6,11 @@ void display_proposition (Proposition * p){
 
 void delete_proposition(Proposition * p){
     if(p==NULL){
-        return NULL;
+        return;
     }
     free(p->contenu_proposition);
     free(p);
-	return NULL;
+	return;
 }
 
 
@@ -26,7 +26,7 @@ void set_bool(Proposition * p, bool b){
   if (p != NULL){
     p->is_true = b;
   }
-  return NULL;
+  return;
 }
 
 void print_bool(bool b){
@@ -35,7 +35,7 @@ void print_bool(bool b){
   } else {
 		printf("false\n");
 	}
-  return NULL;
+  return;
 }
 
 

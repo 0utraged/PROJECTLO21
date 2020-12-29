@@ -35,7 +35,7 @@ Regle * rtemp = NULL;
       delete_bc(rtemp);
     }
   }
-  return NULL;
+  return ;
 }
 
 void delete_regle(Regle * r){
@@ -46,7 +46,7 @@ void delete_regle(Regle * r){
     delete_premisse_regle(r->premisse_regle);
     free(r);
   }
-  return NULL;
+  return;
 }
 
 void delete_premisse_regle(Premisse * p){
@@ -58,7 +58,7 @@ void delete_premisse_regle(Premisse * p){
           delete_premisse_regle(ptemp);
         }
     }
-  return NULL;
+  return;
 }
 
 void display_bc(BC b){
@@ -71,7 +71,7 @@ void display_bc(BC b){
   } else {
     printf("Empty base!\n");
   }
-  return NULL;
+  return;
 }
 
 Regle * recherche_id(BC b,int id){ //bien verif que b est pas NULL
