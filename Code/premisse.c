@@ -37,7 +37,6 @@ void link_premisse(Regle * r ,const char * c){
         delete_premisse(r->premisse_regle);
         printf("Proposition deleted!\n");
         r->premisse_regle = pnext;
-        plast = NULL;
 
     } else {
 

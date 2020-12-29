@@ -8,7 +8,6 @@ void delete_proposition(Proposition * p){
     if(p==NULL){
         return NULL;
     }
-    memset(p->contenu_proposition,'\0',101);
     free(p->contenu_proposition);
     free(p);
 	return NULL;
@@ -19,7 +18,6 @@ Proposition * create_proposition(char * c){
   Proposition * p_new = (Proposition *)malloc(sizeof(Proposition));
   p_new->contenu_proposition = (char *)malloc(101*sizeof(char));
   p_new->is_true = false;
-  int l = strlen(c);
   memcpy(p_new->contenu_proposition,c,101);
   return p_new;
 }
