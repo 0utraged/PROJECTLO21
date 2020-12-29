@@ -2,11 +2,10 @@
 
 BC read_from_file(BC b)
 {
-  int i=0,n=0;
+  int n=0;
 
   char tempc[101];
   Regle * tempr;
-  Regle * firstrule;
   FILE * fp;
   fp = fopen("database.txt", "a+");
   if (fp != NULL) {
@@ -15,7 +14,6 @@ BC read_from_file(BC b)
         if(b==NULL){
             b=create_regle(b);
             tempr=b;
-            firstrule=tempr;
         } else {
             b=create_regle(b);
             tempr=tempr->next;
@@ -26,6 +24,7 @@ BC read_from_file(BC b)
       }
       if(tempc[n]=='&'){
         tempc[n]='\0';
+        str_tolower(tempc);
         ajout_premisse_queue(tempr,tempc);
         printf("  PE %s",tempc);
         memset(tempc,'\0',101);
@@ -34,6 +33,7 @@ BC read_from_file(BC b)
       }
       if(tempc[n]==':'){
         tempc[n]='\0';
+        str_tolower(tempc);
         ajout_conclusion(tempr,tempc);
         printf("  C %s\n",tempc);
         memset(tempc,'\0',101);
@@ -83,5 +83,5 @@ void write_to_file(BC * b)
     perror("fopen");
   }
   fclose(fp);
-  return NULL;
+  return;
 }

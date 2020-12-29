@@ -56,6 +56,7 @@ char * create_str(char * inp)
 char * input(){
   char * inp = (char*) malloc((101)*sizeof(char));
     fgets(inp,100,stdin);
+    str_tolower(inp);
     strtok(inp, "\n");
     return inp;
 }
