@@ -16,7 +16,7 @@
 */
 void marks_true_fact(BC b, char* c);
 
-/**recursif, utilise check_premisse() pour passer conclusion en true si tout les éléments sont true, return bool
+/**recursif, utilise check_premisse() pour passer conclusion en true si tous les éléments sont true, return bool
 pour savoir qu'il y a eu un changement*/
 bool conclusion_check(Regle * r);
 
