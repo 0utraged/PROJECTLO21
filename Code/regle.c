@@ -41,7 +41,7 @@ bool is_empty_premisse(Regle * r){
 //remplacé, plus lisible
 Premisse * search_prop(const char * c, Premisse * p){
 	if (p==NULL){
-        return;
+        return NULL;
 	} else {
         int len=strlen(p->contenu_premisse->contenu_proposition);
         if(strcmp(c,p->contenu_premisse->contenu_proposition)==0){

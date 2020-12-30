@@ -42,9 +42,11 @@ void conclusion_check_global (BC b, BC origin_point){
     //les conclusions vides ou deja verifiees sont triees ici
     bool check = conclusion_check(b);
     if (check == true){
-      printf("%s\n",b->conclusion->contenu_proposition);
-      marks_true_fact(origin_point,b->conclusion->contenu_proposition);
-      conclusion_check_global(b->next,origin_point);
+        printf("%s\n",b->conclusion->contenu_proposition);
+        marks_true_fact(origin_point,b->conclusion->contenu_proposition);
+        if (b->next!=NULL){
+            conclusion_check_global(b->next,origin_point);
+        }
       //pas besoin de recheck la conclusion actuelle, on recommence a la suite
     }
   }
@@ -91,37 +93,35 @@ bool confirmation(){
 }
 
 void engine(BC b){
-  int menu=0;
+  int men=0;
   do {
     printf("What do you want to do? Enter the proper number:\n 1:Enter a fact.\n 2:Launch the engine, get all possible conclusions from your facts and exit engine.\n 3:Exit engine now.\n ");
-      scanf("%d",&menu);
-      switch(menu){
+      scanf("%d",&men);
+      switch(men){
         case 1: printf("Please enter your fact (max 100 characters):\n");
         input();
         char * temp_input = create_str(input());
         printf("Your fact is: %s\n",temp_input);
-        if(confirmation()==true){
-          marks_true_fact(b, temp_input);
-        }
+        marks_true_fact(b, temp_input);
         break;
 
         case 2: if(confirmation()==true){
           printf("The possible conclusions are:\n");
           conclusion_check_global(b,b);
-          menu = 99;
+          men = 99;
         }
         break;
 
         case 3: if(confirmation()==true){
           printf("Exiting engine.\n");
-          menu = 99;
+          men = 99;
         }
         break;
 
-        default: menu = 0;
+        default: men= 0;
         printf("Please enter a valid option!\n");
       }
-  } while (menu!=99);
+  } while (men!=99);
   reinit_bool(b);
   return;
 }
@@ -289,5 +289,5 @@ int menu_bf(){
       }
 
     }
-    return;
+    return NULL;
 }
