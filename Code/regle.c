@@ -43,7 +43,6 @@ Premisse * search_prop(const char * c, Premisse * p){
 	if (p==NULL){
         return NULL;
 	} else {
-        int len=strlen(p->contenu_premisse->contenu_proposition);
         if(strcmp(c,p->contenu_premisse->contenu_proposition)==0){
             return p;
         }

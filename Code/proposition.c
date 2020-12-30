@@ -13,7 +13,6 @@ void delete_proposition(Proposition * p){
 	return;
 }
 
-
 Proposition * create_proposition(char * c){
   Proposition * p_new = (Proposition *)malloc(sizeof(Proposition));
   p_new->contenu_proposition = (char *)malloc(101*sizeof(char));
@@ -50,13 +49,12 @@ char * create_str(char * inp)
    return str;
 }
 
-//TODO: verifier si le stdin doit etre flush
 char * input(){
   char * inp = (char*) malloc((101)*sizeof(char));
-    fgets(inp,100,stdin);
-    str_tolower(inp);
-    strtok(inp, "\n");
-    return inp;
+  fgets(inp,100,stdin);
+  str_tolower(inp);
+  strtok(inp, "\n");
+  return inp;
 }
 
 char * str_tolower(char * c) {

@@ -8,22 +8,40 @@
 #include "proposition.h"
 #include "premisse.h"
 #include "regle.h"
-/*La structure Regle (List of Lists) est une liste d'adresses vers des listes d'éléments de structure ListElement*/
 
+/** renvoie un pointeur nul
+*/
 BC create_base();
 
+/** alloue l'espace nécesaire à une règle vide, crée une règle vide,
+    et lie cette règle à la dernière règle de la base de connaissances après l'avoir trouvée
+*/
 Regle * create_regle(BC b);
 
-void delete_bc(BC b); //récursif
+/** récursif, supprime toutes les règles de la liste chainée BC avec delete_regle()
+*/
+void delete_bc(BC b);
 
+/** supprime la prémisse de r, supprime la conclusion avec delete_proposition(), puis utilise delete_premisse_regle() avant de libérer la règle
+*/
 void delete_regle(Regle * r);
 
-void delete_premisse_regle(Premisse * p); //récursif
+/** récursif, supprime tous les éléments de la prémisse p en commençant par celui là, utilise delete_premisse()
+*/
+void delete_premisse_regle(Premisse * p);
 
-void display_bc(BC b); //(uses display_regle), récursif
+/** récursif, affiche le contenu du pointeur de règle BC puis si son pointeur next est non nul, l'affiche aussi.
+    si le pointeur b est nul, affiche "empty base!"
+*/
+void display_bc(BC b);
 
-Regle * recherche_id(BC b,int id);//recursif, retrouve la regle voulue, pas de verif de base vide (fait en main)
+/** renvoie le pointeur vers la regle cherchée, après avoir comparé l'id de chaque règle.
+    Si l'id est trop grand, affiche le message "ID too big!", si il est trop petit ou a été supprimé, affiche "ID unavailable!"
+*/
+Regle * recherche_id(BC b,int id);
 
+/** Renvoie le nombre entré par l'utilisateur
+*/
 int id_input();
 
 #endif
