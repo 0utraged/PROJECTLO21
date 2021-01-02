@@ -35,6 +35,9 @@ void conclusion_check_global (BC b, BC origin_point);
     ainsi que tous les élements de prémisse de chaque règle avec reinit_premisse()
     tant que b est non nul.
 */
+
+void conclusion_true_print (Regle * r);
+
 void reinit_bool(BC b);
 
 /** récursif, réinitialise le boolean de chaque élément de la prémisse
