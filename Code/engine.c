@@ -35,7 +35,6 @@ bool check_premisse (Premisse * p){
 }
 
 void conclusion_check_global (BC b, BC origin_point){
-    bool change=false;
   if (b->next!=NULL){
     conclusion_check_global(b->next,origin_point);
   }
@@ -43,30 +42,16 @@ void conclusion_check_global (BC b, BC origin_point){
     //les conclusions vides ou deja verifiees sont triees ici
     bool check = conclusion_check(b);
     if (check == true){
-        marks_true_fact(b,b->conclusion->contenu_proposition);
+        printf("%s\n",b->conclusion->contenu_proposition);
         marks_true_fact(origin_point,b->conclusion->contenu_proposition);
         if (b->next!=NULL){
             conclusion_check_global(b->next,origin_point);
-        } else {
-            conclusion_check_global(origin_point,origin_point);
         }
       //pas besoin de recheck la conclusion actuelle, on recommence a la suite
     }
   }
   return;
 }
-
-void conclusion_true_print (Regle * r){
-    if (r->conclusion!=NULL && r->conclusion->is_true==true){
-        printf("%s\n",r->conclusion->contenu_proposition);
-    }
-    if (r->next!=NULL){
-        conclusion_true_print(r->next);
-    }
-    return;
-}
-
-
 
 void reinit_bool(BC b){
   if (b!=NULL){
@@ -123,7 +108,6 @@ void engine(BC b){
         case 2: if(confirmation()==true){
           printf("The possible conclusions are:\n");
           conclusion_check_global(b,b);
-          conclusion_true_print(b);
           men = 99;
         }
         break;
